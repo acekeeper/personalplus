@@ -1,0 +1,144 @@
+<section class="todo-app">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well white">
+                <form class="form">
+                    <div class="row">
+                        <div class="col-sm-2">
+
+                            <div class="form-group filled">
+                                <label class="control-label">Дата проведення</label>
+                                <input type="text" class="form-control" ng-model="interview.date" data-autoclose="1"
+                                       bs-datepicker>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group filled">
+                                <label class="control-label">Час провдення</label>
+                                <input type="text" class="form-control" ng-model="interview.time" data-autoclose="1"
+                                       bs-timepicker>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">Претендент</label>
+                                <select class="form-control" ng-model="interview.candidate">
+                                <option></option>
+                                    <option ng-repeat="candidate in candidates" ng-value="candidate.name">{{::candidate.name}}</option>
+                                 </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                             <label class="control-label">Коментар</label>
+                                <input type="text" class="form-control" ng-model="interview.comment">
+                            </div>
+                        </div>
+                        <div class="col-sm-1">
+                        <button class="btn btn-primary" ng-click="addInterview(interview)">
+                            Додати
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+        <div class="table-responsive well no-padding white no-margin">
+            <h3 class="table-title">Знайдено {{interviews.length}} записів</h3>
+            <table class="table table-full m-b-60" id="table-area-1">
+                <thead>
+                <tr fsm-sticky-header scroll-body="'#table-area-1'" scroll-stop="64" id="interviews-head">
+                    <th>Проведено</th>
+                    <th>Дата провдення</th>
+                    <th>Час проведення</th>
+                    <th>Претендент</th>
+                    <th>Коментар</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="(key, item) in interviews" ng-click="item.selected=!item.selected"  ng-dblclick="editItem(item)">
+                    <td>
+                        <input type="checkbox" class="relative" ng-model="item.done" ng-click="$event.stopPropagation()" ng-disabled="!item.edit"/>
+                    </td>
+                    <td>
+                        <div class="form-group filled">
+                            <input type="text" class="form-control" ng-model="item.date" data-autoclose="1"
+                                   bs-datepicker ng-disabled="!item.edit" ng-class="{strike: item.done}">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group filled">
+                        <input type="text" class="form-control" ng-model="item.time" data-autoclose="1"
+                               bs-timepicker ng-disabled="!item.edit" ng-class="{strike: item.done}">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <select class="form-control" ng-model="item.candidate" ng-disabled="!item.edit" ng-class="{strike: item.done}">
+                                <option></option>
+                                <option ng-repeat="candidate in candidates" ng-value="candidate.name">{{::candidate.name}}</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" class="form-control" ng-model="item.comment" ng-disabled="!item.edit" ng-class="{strike: item.done}">
+                        </div>
+                    </td>
+                    <td ng-click="$event.stopPropagation()">
+                        <button type="button" class="btn btn-link btn-round" data-title="Редагувати"  ng-click="item.edit = true" ng-if="!item.edit"><i class="md md-edit"></i></button>
+                        <button type="button" class="btn btn-link btn-round" data-title="ОК"  ng-click="updateInterview(item._id, item)" ng-if="item.edit"><i class="md md-done"></i></button>
+                        <button type="button" class="btn btn-link btn-round" data-title="Видалити" data-animation="am-fade-and-slide-top" data-template-url="assets/tpl/partials/modal.html" bs-modal="modal"><i class="md md-delete"></i></button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+        <!--<div class="col-md-12 filters">-->
+            <!--<div class="btn-group" role="group" aria-label="Filter todo's">-->
+                <!--<button ng-repeat="filter in todoService.filters track by $index" class="btn btn-default filter"-->
+                        <!--ng-bind="filter.title" ng-click="todoService.filter(filter.method)"-->
+                        <!--ng-class="[$index == todoService.activeFilter ? 'active' : '']"></button>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="col-md-12">-->
+
+            <!--<div class="well white">-->
+
+                <!--<ul class="list-unstyled" ng-show="todos.length">-->
+                    <!--<li ng-repeat="todo in todos | filter:todoService.todoFilter track by $id($index)">-->
+                        <!--<div class="checkbox">-->
+              <!--<span class="pull-right">-->
+                <!--<button type="button" class="btn btn-round btn-flat btn-default" ng-click="todoService.editTodo(todo)">-->
+                  <!--<i class="md md-edit"></i>-->
+                <!--</button>-->
+              <!--</span>-->
+                            <!--<label ng-class="{strike: todo.done}">-->
+                                <!--<input ng-model="todo.done" type="checkbox" ng-click="todoService.toggleDone(todo)"/>-->
+                                <!--{{todo.title}}-->
+                            <!--</label>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                <!--</ul>-->
+
+                <!--<div class="alert alert-info" ng-show="!todos.length">-->
+                    <!--<p>No more todo's, you are free!</p>-->
+                <!--</div>-->
+
+            <!--</div>-->
+
+        <!--</div>-->
+
+        <!--<div class="col-md-12">-->
+            <!--<button class="btn btn-info" ng-click="todoService.clearCompleted()">Clear completed todo's</button>-->
+        <!--</div>-->
+
+    </div>
+
+</section>

@@ -1,0 +1,210 @@
+<div class="aside bs-docs-aside" tabindex="-1" role="dialog">
+    <div class="close">
+        <div class="btn btn-round btn-info" ng-click="$hide()"><i class="md md-close"></i></div>
+    </div>
+
+    <div class="aside-dialog">
+        <div class="aside-body bs-sidebar">
+            <button class="btn btn-sm btn-primary" id="exportBtn" ng-click="openImport()">імпортувати</button>
+
+            <div id="import" ng-if="import">
+
+                    <div class="btn-group fullwidth">
+                        <button class="btn fullwidth btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            {{website||'work.ua'}}
+                            <span class="caret"></span>
+                            <div class="ripple-wrapper"></div></button>
+                        <ul class="dropdown-menu">
+                            <li ng-click="website='work.ua'"><a href="">WORK.UA</a> </li>
+                            <li ng-click="website='job.ukr.net'"><a href="">JOB.UKR.NET</a> </li>
+                        </ul>
+                    </div>
+                <form class="form-floating" ng-class="{'filled':item.searchId}">
+                    <div class="form-group">
+                        <label class="control-label">Номер анкети</label>
+                        <input type="text" class="form-control" ng-model="item.searchId"
+                               ng-disabled="!item.editing" required>
+                    </div>
+                </form>
+
+                    <button class="btn btn-sm btn-primary pull-left" ng-click="getExternalCV(item.searchId)">завантажити</button>
+                <button class="btn btn-sm btn-danger pull-right" ng-click="closeImport()">скасувати</button>
+
+            </div>
+
+            <form class="form-floating" novalidate="novalidate">
+                <legend>+ Додати нового претендента</legend>
+
+                <fieldset>
+                    <div class="row">
+                        <div class="col-md-4">
+
+                            <div id="candidate">
+                                <div class="parsePhoto"
+                                     ng-style="item.photo ?{'background-image':'url('+item.photo+')'}:''">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8" style="position: relative; top: -40px;">
+
+                            <div class="form-group" ng-class="{'filled':item.birthday}">
+                                <label class="control-label">Дата народження</label>
+                                <input type="text" class="form-control" ng-model="item.birthday"
+                                       ng-disabled="!item.editing">
+                            </div>
+                            <div class="form-group" ng-class="{'filled':item.city}">
+                                <label class="control-label">Місто</label>
+                                <input type="text" class="form-control" ng-model="item.city"
+                                       ng-disabled="!item.editing">
+                            </div>
+                            <div class="form-group" ng-class="{'filled':item.phone}">
+                                <label class="control-label">Телефон</label>
+                                <input type="text" class="form-control" ng-model="item.phone"
+                                       ng-disabled="!item.editing">
+                            </div>
+                            <div class="form-group" ng-class="{'filled':item.email}">
+                                <label class="control-label">E-mail</label>
+                                <input type="text" class="form-control" ng-model="item.email"
+                                       ng-disabled="!item.editing">
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="row" style="position: relative; top: -60px;">
+                        <div class="col-sm-12">
+                            <div class="form-group" ng-class="{'filled':item.name}">
+                                <label class="control-label">П.І.Б.</label>
+                                <input type="text" class="form-control" ng-model="item.name"
+                                       ng-disabled="!item.editing">
+                            </div>
+
+                            <div class="form-group" ng-class="{'filled':item.position}">
+                                <label class="control-label">Вакансія</label>
+                                <input type="text" class="form-control" ng-model="item.position"
+                                       ng-disabled="!item.editing">
+                            </div>
+
+                            <div class="form-group" ng-class="{'filled':item.salary}">
+                                <label class="control-label">Бажана зарплата</label>
+                                <input type="text" class="form-control" ng-model="item.salary"
+                                       ng-disabled="!item.editing">
+                            </div>
+
+                        </div>
+                        </div>
+                    <div class="row" style="position: relative; top: -60px;">
+                        <div class="col-sm-12">
+                            <h4 class="text-info" ng-click="toggle('education')"><i class="md md-school"></i> Освіта
+                                <button class="btn btn-xs btn-primary pull-right" ng-click="showNewInfo('education')" ng-show="!educationVisible">+ Додати</button>
+                            </h4>
+                            <div ng-show="educationVisible">
+                            <div class="form-group" ng-repeat="x in item.education" ng-class="{'filled':x.content}">
+                                <label class="control-label">{{x.title}}</label>
+                                <input type="text" class="form-control vertical"  ng-model="x.content"
+                                          ng-disabled="!item.editing">
+                            </div>
+                                <button class="btn btn-xs btn-primary" ng-click="showNewInfo('education')" ng-show="!educationNewVisible">+ Додати</button>
+                            </div>
+                            <div ng-show="educationVisible&&educationNewVisible">
+                                <div class="form-group">
+                                    <label class="control-label">Заголовок</label>
+                                    <input type="text" class="form-control vertical"  ng-model="educationNew.title">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Текст</label>
+                                    <input type="text" class="form-control vertical"  ng-model="educationNew.content">
+                                    <button class="btn btn-xs btn-primary" ng-click="addNewInfo('education')">ОК</button>
+                                    <button class="btn btn-xs btn-danger" ng-click="discardNewInfo('education')">Скасувати</button>
+                                </div>
+                            </div>
+                            <h4 class="text-info" ng-click="toggle('workExp')"><i class="md md-business"></i> Досвід роботи
+                                <button class="btn btn-xs btn-primary pull-right" ng-click="showNewInfo('workExp')" ng-show="!workExpVisible">+ Додати</button>
+                            </h4>
+                            <div ng-show="workExpVisible">
+                                <div class="form-group" ng-repeat="x in item.workExp" ng-class="{'filled':x.content}">
+                                    <label class="control-label">{{x.title}}</label>
+                                    <input type="text" class="form-control vertical"  ng-model="x.content"
+                                           ng-disabled="!item.editing">
+                                </div>
+                                <button class="btn btn-xs btn-primary" ng-click="showNewInfo('workExp')" ng-show="!workExpNewVisible">+ Додати</button>
+                            </div>
+                            <div ng-show="workExpVisible&&workExpNewVisible">
+                                <div class="form-group">
+                                    <label class="control-label">Заголовок</label>
+                                    <input type="text" class="form-control vertical"  ng-model="workExpNew.title">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Текст</label>
+                                    <input type="text" class="form-control vertical"  ng-model="workExpNew.content">
+                                    <button class="btn btn-xs btn-primary" ng-click="addNewInfo('workExp')">ОК</button>
+                                    <button class="btn btn-xs btn-danger" ng-click="discardNewInfo('workExp')">Скасувати</button>
+                                </div>
+                            </div>
+                            <h4 class="text-info" ng-click="toggle('skills')"><i class="md md-play-install"></i> Професійні навички
+                                <button class="btn btn-xs btn-primary pull-right" ng-click="showNewInfo('skills')" ng-show="!skillsVisible">+ Додати</button>
+                            </h4>
+                            <div ng-show="skillsVisible">
+                                <div class="form-group" ng-repeat="x in item.skills" ng-class="{'filled':x.content}">
+                                    <label class="control-label">{{x.title}}</label>
+                                    <input type="text" class="form-control vertical"  ng-model="x.content"
+                                           ng-disabled="!item.editing">
+                                </div>
+                                <button class="btn btn-xs btn-primary" ng-click="showNewInfo('skills')" ng-show="!skillsNewVisible">+ Додати</button>
+                            </div>
+                            <div ng-show="skillsVisible&&skillsNewVisible">
+                                <div class="form-group">
+                                    <label class="control-label">Заголовок</label>
+                                    <input type="text" class="form-control vertical"  ng-model="skillsNew.title">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Текст</label>
+                                    <input type="text" class="form-control vertical"  ng-model="skillsNew.content">
+                                    <button class="btn btn-xs btn-primary" ng-click="addNewInfo('skills')">ОК</button>
+                                    <button class="btn btn-xs btn-danger" ng-click="discardNewInfo('skills')">Скасувати</button>
+                                </div>
+                            </div>
+                            <h4 class="text-info"  ng-click="toggle('additional')"><i class="md md-sms"></i> Додаткова інформація
+                                <button class="btn btn-xs btn-primary pull-right" ng-click="showNewInfo('additional')" ng-show="!additionaVisible">+ Додати</button>
+                            </h4>
+                            <div ng-show="additionalVisible">
+                                <div class="form-group" ng-repeat="x in item.additional" ng-class="{'filled':x.content}">
+
+                                    <label class="control-label">{{x.title}}</label>
+                                    <input type="text" class="form-control vertical"  ng-model="x.content"
+                                           ng-disabled="!item.editing">
+                                </div>
+                                <button class="btn btn-xs btn-primary" ng-click="showNewInfo('additional')" ng-show="!additionalNewVisible">+ Додати</button>
+
+                            </div>
+                            <div ng-show="additionalNewVisible&&additionalVisible">
+                                <div class="form-group">
+                                    <label class="control-label">Заголовок</label>
+                                    <input type="text" class="form-control vertical"  ng-model="additionalNew.title">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Текст</label>
+                                    <input type="text" class="form-control vertical"  ng-model="additionalNew.content">
+                                    <button class="btn btn-xs btn-primary" ng-click="addNewInfo('additional')">ОК</button>
+                                    <button class="btn btn-xs btn-danger" ng-click="discardNewInfo('additional')">Скасувати</button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <button class="btn btn-lg btn-primary" ng-hide="!item.editing" ng-click="addCandidate(item)">Зберегти
+                                </button>
+                                <button class="btn btn-lg btn-primary" ng-hide="!item.editing" ng-click="updateCandidate(item._id, item)">Оновити
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+</div>

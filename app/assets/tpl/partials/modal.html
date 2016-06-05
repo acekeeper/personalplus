@@ -1,0 +1,19 @@
+<div class="modal text-left" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="$hide()">&times;</button>
+        <h4 class="modal-title">Ви дійсно хочете видалити цей запис?</h4>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="$hide()">Скасувати</button>
+        <button type="button" class="btn btn-primary" ng-click="$hide(); deleteCandidate(item._id)" ng-if="settings.name=='candidates'">Видалити</button>
+        <button type="button" class="btn btn-primary" ng-click="$hide(); deleteInterview(item._id)" ng-if="settings.name=='interviews'">Видалити</button>
+
+      </div>
+    </div>
+  </div>
+</div>

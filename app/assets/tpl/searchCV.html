@@ -1,0 +1,898 @@
+<div class="row no-gutter">
+  <div class="col-sm-9">
+    <!--<object data="http://rabota.ua" style="width:100%; height:90vh">-->
+      <!--<embed src="http://rabota.ua" style="width:100%; height:90vh"> </embed>-->
+      <!--Error: Embedded data could not be displayed.-->
+    <!--</object>-->
+    <!--<iframe  ng-src="{{trustSrc(iframeUrl+(idCV? '/cv/'+idCV:''))}}" style="width:100%; height:90vh"></iframe>-->
+  </div>
+  <div class="col-sm-3">
+
+      <div id="candidate">
+        <div class="parsePhoto" ng-style="candidate.photo && {'background-image':'url('+candidate.photo+')'}">
+
+        </div>
+      </div>
+    Введіть Id резюме:
+    <input type="text" ng-model="idCV">
+        <div class="col-md-12">
+          <button class="btn btn-info" ng-click="createTodo()">Create todo</button>
+            <button class="btn btn-info" ng-click="getById()">Get todo</button>
+        </div>
+
+
+
+  </div>
+  </div>
+
+<script>
+//  console.log($('iframe')[0].contentWindow.location.href);
+//  console.log(document.getElementById("iframe").contentWindow.location.href);
+</script>
+<!--<iframe src="http://rabota.ua/cv/3307629" width="100%" height="500" frameborder="0" class="testIframe"></iframe>-->
+
+<!--<script>-->
+  <!--/**-->
+   <!--* jQuery.ajax mid - CROSS DOMAIN AJAX-->
+   <!--* -&#45;&#45;-->
+   <!--* @author James Padolsey (http://james.padolsey.com)-->
+   <!--* @version 0.11-->
+   <!--* @updated 12-JAN-10-->
+   <!--* -&#45;&#45;-->
+   <!--* Note: Read the README!-->
+   <!--* -&#45;&#45;-->
+   <!--* @info http://james.padolsey.com/javascript/cross-domain-requests-with-jquery/-->
+   <!--*/-->
+
+  <!--jQuery.ajax = (function(_ajax){-->
+
+    <!--var protocol = location.protocol,-->
+            <!--hostname = location.hostname,-->
+            <!--exRegex = RegExp(protocol + '//' + hostname),-->
+            <!--YQL = 'http' + (/^https/.test(protocol)?'s':'') + '://query.yahooapis.com/v1/public/yql?callback=?',-->
+            <!--query = 'select * from html where url="{URL}" and xpath="*"';-->
+
+    <!--function isExternal(url) {-->
+      <!--return !exRegex.test(url) && /:\/\//.test(url);-->
+    <!--}-->
+
+    <!--return function(o) {-->
+
+      <!--var url = o.url;-->
+
+      <!--if ( /get/i.test(o.type) && !/json/i.test(o.dataType) && isExternal(url) ) {-->
+
+        <!--// Manipulate options so that JSONP-x request is made to YQL-->
+
+        <!--o.url = YQL;-->
+        <!--o.dataType = 'json';-->
+
+        <!--o.data = {-->
+          <!--q: query.replace(-->
+                  <!--'{URL}',-->
+                  <!--url + (o.data ?-->
+                  <!--(/\?/.test(url) ? '&' : '?') + jQuery.param(o.data)-->
+                          <!--: '')-->
+          <!--),-->
+          <!--format: 'xml'-->
+        <!--};-->
+
+        <!--// Since it's a JSONP request-->
+        <!--// complete === success-->
+        <!--if (!o.success && o.complete) {-->
+          <!--o.success = o.complete;-->
+          <!--delete o.complete;-->
+        <!--}-->
+
+        <!--o.success = (function(_success){-->
+          <!--return function(data) {-->
+
+            <!--if (_success) {-->
+              <!--// Fake XHR callback.-->
+              <!--_success.call(this, {-->
+                <!--responseText: (data.results[0] || '')-->
+                <!--// YQL screws with <script>s-->
+                <!--// Get rid of them-->
+                        <!--.replace(/<script[^>]+?\/>|<script(.|\s)*?\/script>/gi, '')-->
+              <!--}, 'success');-->
+            <!--}-->
+
+          <!--};-->
+        <!--})(o.success);-->
+
+      <!--}-->
+
+      <!--return _ajax.apply(this, arguments);-->
+
+    <!--};-->
+
+  <!--})(jQuery.ajax);-->
+<!--</script>-->
+
+<!--<script>-->
+  <!--$(document).ready(function(){-->
+    <!--var url = $(".testIframe").attr("src");-->
+
+    <!--$.get(url,function(data){-->
+      <!--var html = jQuery.parseHTML(data.responseText);-->
+      <!--var parsedImg = jQuery(html).find(".photo>img")[0];-->
+      <!--alert("First character is "+$(parsedImg).attr("alt"));-->
+      <!--alert("First image url is"+$(parsedImg).attr("src"));-->
+
+    <!--})-->
+  <!--})-->
+<!--</script>-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:fb="http://ogp.me/ns/fb#"
+        xml:lang="ru" lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Keywords" content="работа в киеве, работа, работа в украине, вакансии, резюме, поиск работы, ищу работу, работодатели, подбор персонала, work ua, ворк юа" />
+    <meta name="Description" content="Мележик Юрий Дмитриевич, Инженер по радиотехнике ищет работу в Киеве. О себе: 52&nbsp;года, высшее образование, опыт работы 10 лет. Интересует полная занятость, неполная занятость, удаленная работа, ЗП от 7000 грн." />
+    <meta http-equiv="content-language" content="ru" />
+
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="no-cache" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+
+    <meta property="og:title" content="Резюме «Инженер по радиотехнике»" />
+    <meta property="og:description" content="Мележик Юрий Дмитриевич, Инженер по радиотехнике шукає роботу в Киеве. О себе: 52&nbsp;года, высшее образование, опыт работы 10 лет.  ЗП от 7000 грн." />
+    <meta property="og:image" content="http://i.work.ua/i/og/workua-logo.png" />
+    <meta property="og:url" content="http://www.work.ua/resumes/3114792/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:locale:alternate" content="uk_UA" />
+    <meta name="msapplication-config" content="//st.work.ua/browser/ie/browserconfig.xml?v2=1" />
+    <title>Резюме «Инженер по радиотехнике», Киев. Мележик Юрий Дмитриевич — Work.ua</title>
+
+    <link type="text/css" rel="stylesheet" href="/css/main_1459499398.css" />
+    <!--[if lte IE 6]>
+    <link rel="stylesheet" title="default" href="/css/ie6.css" type="text/css" media="screen, projection" />
+    <![endif]-->
+    <!--[if gte IE 7]>
+    <link rel="stylesheet" title="default" href="/css/ie7.css" type="text/css" media="screen, projection" />
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/css/print_1318341029.css" media="print" />
+    <link rel="stylesheet" type="text/css" href="/css/resume_1409717862.css" />
+    <link rel="stylesheet" type="text/css" href="/css/resume-print_1424240877.css" media="print" />
+    <script type="text/javascript" src="/js/mootools_1350549978.js"></script>
+    <script type="text/javascript" src="/js/mootools-more_1462863832.js"></script>
+    <script src="/ru/js/lp_1461158228.js"></script>
+    <script src="//st.work.ua/js/main-min_1412335631.js"></script>
+    <script src="/js/cssua.min.js"></script>
+
+    <link rel="shortcut icon" href="//st.work.ua/browser/favicon.ico?v2=1" />
+    <link rel="apple-touch-icon" sizes="60x60" href="//st.work.ua/browser/safari/apple-touch-icon-60x60.png?v2=1">
+    <link rel="apple-touch-icon" sizes="76x76" href="//st.work.ua/browser/safari/apple-touch-icon-76x76.png?v2=1">
+    <link rel="apple-touch-icon" sizes="120x120" href="//st.work.ua/browser/safari/apple-touch-icon-120x120.png?v2=1">
+    <link rel="apple-touch-icon" sizes="152x152" href="//st.work.ua/browser/safari/apple-touch-icon-152x152.png?v2=1">
+    <link rel="apple-touch-icon" sizes="167x167" href="//st.work.ua/browser/safari/apple-touch-icon-167x167.png?v2=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="//st.work.ua/browser/safari/apple-touch-icon-180x180.png?v2=1">
+    <link rel="mask-icon" href="//st.work.ua/browser/safari/website_icon.svg?v2=1" color="#00a1f1">
+    <link rel="yandex-tableau-widget" href="//st.work.ua/browser/yandex-tableau/manifest.json?v2=1" />
+
+    <link rel="canonical" href="http://www.work.ua/resumes/3114792/" />
+    <link rel="alternate" hreflang="ru" href="http://www.work.ua/resumes/3114792/" />
+    <link rel="alternate" hreflang="uk" href="http://www.work.ua/ua/resumes/3114792/" />
+</head>
+
+
+<body>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-W6CVFN" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+    dataLayer=[{userType:'employer'}];
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;
+        f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W6CVFN');
+</script><div>
+    <div id="header">
+        <div id="auth" class="right" style="z-index:100; position:relative">
+            <div class="grey left" style="margin-right:25px">
+                <span>Рус.</span>&nbsp;| <a href=/ua/resumes/3114792/?setlp=ua class=blue>Укр.</a></div>
+            <noindex><a href="/employer/login/">Войти</a></noindex></div>
+        <div class="clear" style="height:15px"></div>
+        <div id="mess_123" class="site-mess"><a href="http://www.work.ua/news/site/679/">Ура! Нам исполнилось 10 лет!</a>
+            <a data-id="123" href="javascript:void(0)" class="sms-x" id="sms-x"></a>
+            <i class="arr"></i>
+        </div>
+
+        <script>
+            if (typeof window.addEvent !== 'undefined')
+            {
+                var hideMess = new Request({
+                    method: 'post',
+                    url: '/_data/_ajax/message.php',
+                    data  : {id: $('sms-x').get('data-id')}
+                });
+
+                $('sms-x').addEvent('click', function() {
+                    hideMess.send();
+                    $('sms-x').getParent('div').dispose();
+                });
+            }
+            else
+            {
+                function closeMessWindow ()
+                {
+                    $('#sms-x').click(function(){
+                        $.ajax({
+                            type    : 'POST',
+                            url     : '/_data/_ajax/message.php',
+                            cache   : false,
+                            dataType: 'json',
+                            data    : {id: $(this).data('id')}
+                        });
+                        $(this).parent().remove();
+                        return false;
+                    });
+                }
+
+                try {
+                    closeMessWindow();
+                }
+                catch(err) {}
+
+            }
+        </script>
+        <div class="left" >
+            <noindex><a href="/employer/" class="logo no-hover" style="margin-top: 20px">
+                <style>
+                    /*body {
+                    background: url("//st.work.ua/i/decoration/ny2015/snow.jpg") 0 -6px repeat-x;
+                    }*/
+                </style>
+                <img src="/static/i/decoration/wbd2016/new-logo-employer_ru.png"
+                     width="208" height="77" style="margin: -14px 0 4px" alt="Work.ua - работа в Киеве и Украине"
+                     title="Work.ua - работа в Киеве и Украине" id="header-logo"/></a></noindex><script>
+            if (window.devicePixelRatio != undefined && window.devicePixelRatio > 1)
+            {
+                $('header-logo').src = '/static/i/decoration/wbd2016/new-logo-employer_ru@2x.png';
+            }
+        </script>
+
+        </div>
+        <style type="text/css">
+            .bannerHolder div:first-child {
+                border:1px solid #eee;
+                margin: 5px 0
+            }
+        </style>
+        <div class="no-print bannerHolder">
+            <div align="center"></div>   </div>
+    </div>
+    <!-- #header -->
+</div>
+
+
+<div id="navigation" class="eNav">
+    <ul id="menu">
+
+        <li><a href="/employer/" title="Главная">Главная</a></li><li class="selected">
+        <a href="/resumes/" class="active"><span class="left-crn"></span>Найти резюме<span class="right-crn"></span></a>
+    </li><li class="emp"><a href="/employer/my/jobs/create/" title="Добавить вакансию">Добавить вакансию</a></li><li><noindex><a href="/employer/my/" title="Мой Work.ua">Мой Work.ua</a></noindex></li><li><a href="/employer/resources/" title="Советы и ресурсы">Советы и ресурсы</a></li><li class="empty"></li><li class="last">
+        <a href="http://www.work.ua/"
+           title="Соискателю">Соискателю</a>
+    </li>
+    </ul>
+</div>
+
+<!-- center -->
+<div id="center" class="eCenter">
+    <div id="navigation-2" class="eNav-2">
+        <ul id="menu-2">
+
+            <li><a href="/resumes/by-category/" title="Резюме по разделам">По разделам</a></li>
+            <li><a href="/resumes/by-region/" title="Резюме по городам">По городам</a></li>
+            <li><noindex><a href="/employer/my/search-agents/" title="Поисковые агенты">Поисковые агенты</a></noindex></li>
+
+        </ul></div>
+    <div id="greyShadow"></div>
+    <script type="text/javascript" src="/js/modal_1433221872.js"></script><!--[if IE 8]>
+    <link rel="stylesheet" href="//st.work.ua/css/ie8_1446199943.css" />
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="//st.work.ua/css/ie7_1446199947.css" />
+    <![endif]-->
+
+    <script type="text/javascript" charset="UTF-8">
+        /* <![CDATA[ */
+        try { if (undefined == xajax.config) xajax.config = {}; } catch (e) { xajax = {}; xajax.config = {}; };
+        xajax.config.requestURI = "/_data/_ajax/resumes_selection.php";
+        xajax.config.statusMessages = false;
+        xajax.config.waitCursor = true;
+        xajax.config.version = "xajax 0.5";
+        xajax.config.legacy = false;
+        xajax.config.defaultMode = "asynchronous";
+        xajax.config.defaultMethod = "POST";
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="/_data/lib/xajax/xajax_js/xajax_core.js" charset="UTF-8"></script>
+    <script type="text/javascript" charset="UTF-8">
+        /* <![CDATA[ */
+        window.setTimeout(
+                function() {
+                    var scriptExists = false;
+                    try { if (xajax.isLoaded) scriptExists = true; }
+                    catch (e) {}
+                    if (!scriptExists) {
+                        alert("Error: the xajax Javascript component could not be included. Perhaps the URL is incorrect?\nURL: /_data/lib/xajax/xajax_js/xajax_core.js");
+                    }
+                }, 2000);
+        /* ]]> */
+    </script>
+
+    <script type='text/javascript' charset='UTF-8'>
+        /* <![CDATA[ */
+        xajax_showMessageForm = function() { return xajax.request( { xjxfun: 'showMessageForm' }, { parameters: arguments, URI: '/_data/_ajax/archive_tools.php' } ); };
+        xajax_sendMessage = function() { return xajax.request( { xjxfun: 'sendMessage' }, { parameters: arguments, URI: '/_data/_ajax/archive_tools.php' } ); };
+        /* ]]> */
+    </script>
+    <script>
+        var form = [];
+
+        function showCheck ()
+        {
+            var cs = new checksubmit({
+                formname: 'feedbackForm',
+                submitbtn: 'btSend',
+                errorBlock: 'error-block'
+            });
+            var message = new inputwatch({
+                submitcheck: cs,
+                el: 'message',
+                wrapdiv: 'message-wrap',
+                outputdiv: 'message-out',
+                textEmpty: 'Пожалуйста, заполните поле «Сообщение».',
+                autoscroll: true,
+                minchars:10,
+                textShort:'Текст сообщения должен быть более 10-ти символов'
+            });
+
+            cs.setgood('message');
+            message.message.clear();
+            message.scroll();
+
+            form = cs;
+        }
+
+        function setSubm (id, page)
+        {
+            $('error-block1').set('class', 'error-block hide');
+
+            if (form.isvalid())
+            {
+                xajax_sendMessage(id, xajax.getFormValues('feedbackForm', true), page)
+            }
+        }
+
+        function setTxt (type, x)
+        {
+            showCheck ()
+            $($('type').value+'Tmp').value = $('message').value;
+            $('message').value = $(type+'Tmp').value.replace(/&#10;/ig, "\n");
+            $('type').value = type;
+            $$('.tabL').removeClass('tabAct');
+            x.addClass('tabAct');
+        }
+
+        function changeTextTpl()
+        {
+            $('message').value = $($('type').value+'Default').innerHTML.replace(/&lt;/ig, "<").replace(/&gt;/ig, ">");
+        }
+
+        function showForm(html)
+        {
+            messW = new modalWnd({
+                layerBackgroundColor: '',
+                border: 'none',
+                closeOnclick: false,
+                top: '400px'
+            });
+            messW.setContent(html);
+            messW.open();
+            showCheck();
+            messW.cansel = true;
+        }
+
+        function showContactMess(lnk)
+        {
+            newMw.dialog(
+                    'Хотите просмотреть контакты?',
+                    'Чтобы открыть контакты вам необходимо в&nbsp;блоке &laquo;Контактная информация&raquo;, который расположен в&nbsp;верхней части резюме, нажать на&nbsp;кнопку &laquo;Показать контакты&raquo;.',
+                    [{text: 'Перейти к контактной информации', func: "window.location.href='"+lnk.href+"'"},
+                        {text: 'Отменить', type: 'mbClose'}]
+            );
+            return false;
+        }
+
+        // функция проверяет доступны ли контакты, и если нет - выводет сообщение
+        function check_access()
+        {
+            if (!document.getElementById('jcmsg')) return true;
+            var resume_access = document.getElementById('jcmsg').className=='' ? true : false;
+            if (!resume_access)
+            {
+                alert('Зарегистрируйтесь или войдите на сайт, чтобы воспользоваться этой функцией.');
+            }
+            return resume_access;
+        }
+
+        // функция показывает контакты резюме
+        function showResumeContacts(data)
+        {
+            var pblock = document.id('jcmsg');
+            if (!pblock) return;
+            if (document.id('ncprint')) document.id('ncprint').dispose();
+            pblock.className = '';
+            pblock.innerHTML = '';
+            if (data['use_service'] == 0)
+            {
+                new Element('div', {
+                    'class':'messageSm no-print',
+                    'html': '<div class="sf">Не забудьте, в бесплатном режиме контакты резюме доступны только до конца дня. Чтобы снять '+
+                    ' ограничение, можно <a href="/employer/my/price/access/" class="blue">заказать доступ к&nbsp;базе резюме</a> <nobr>от 290 грн/нед.</nobr></div>'}).inject(pblock, 'before');
+            }
+            var dl = new Element('dl', {'class':'contacts'}).inject(pblock);
+            if (data['address'])
+            {
+                new Element('dt', {'html': 'Адрес:'}).inject(dl);
+                new Element('dd', {'html': data['address']}).inject(dl);
+            }
+            if (data['phone_prim']||data['phone_sec'])
+            {
+                new Element('dt', {'html': 'Телефон:'}).inject(dl);
+                new Element('dd', {'html': data['phone_prim']+(data['phone_sec'] ? ', ' : '') + data['phone_sec']}).inject(dl);
+            }
+
+            new Element('dt', {'html': 'Эл. почта:'}).inject(dl);
+            new Element('dd', {'html': (data['email'] ? data['email']+'<br/>' : '')+
+            '<span class="no-print"><a href="javascript:void(0)" '+
+            'onclick="showWin2Author()">отправить&nbsp;сообщение</a>&nbsp;| '+
+            '<a href="/employer/my/jobs/send/?id=3114792">предложить вакансию</a></span>'}).inject(dl);
+
+            if (data['add_info'])
+            {
+                document.id('add_info').innerHTML = data['add_info'];
+            }
+        }
+
+        function showWin2Author()
+        {
+            xajax_showMessageForm(3114792);
+        }
+    </script>
+    <!-- container -->
+    <div id="container">
+
+        <div id="leftSide">
+            <div id="paddLeftSide" class="paddPrint">
+                <div class="whiteBlock">
+                    <style type="text/css">
+                        a em {background-color: #FFFFCC; font-style:normal}
+                        a:hover em {background-color:#006ddd !important}
+                    </style>
+                    <div class="print_head">
+                        <div>
+                            <img src="//st.work.ua/i/jobs/print_logo.svg" width="75" height="15" class="svg">
+                            <!--[if lte IE 8]>
+                            <img src="//st.work.ua/i/jobs/print_logo.png" width="75" height="15" class="png">
+                            <![endif]-->
+                        </div>
+                        <div class="nf right">Сайт поиска работы №1 в Украине</div>
+                    </div>
+                    <div class="clear" style="height:25px"></div>
+                    <div class="left">
+                        <div class="rPro">Профессиональное резюме от 29.05.2016</div>
+                        <script>
+                            window.addEvent('domready', function() {
+                                new Hint(null,{hclass:'r-migr', popupWidth:160, leftBlock: 'paddLeftSide'});
+                            });
+                        </script>
+                        <div class="clear"></div>
+                        <a name="contact_info"></a>
+                        <a name="resume"></a>
+                        <a name="info"></a>
+                        <h1>Мележик Юрий Дмитриевич</h1><p><span><b>Инженер по радиотехнике</b>, от&nbsp;7000&nbsp;грн/мес., полная занятость, неполная занятость, удаленная работа</span></p>
+
+
+
+                        <div class="shortInfo">
+                            <dl><dt>Дата рождения:</dt><dd>11 мая 1964 <span>(52&nbsp;года)</span></dd><dt>Город:</dt><dd>Киев</dd></dl>
+                        </div>
+                    </div>
+
+                    <div class="right"><img id="cphoto" src="http://i.work.ua/sent_photo/8/6/1/8618a14c23540bbad0669db13980f737.jpg" alt="" width="150" height="200" /></div>
+                    <div class="clear8"></div><h2><span>Контактная информация</span></h2>
+                    <noindex>
+                        <div id="jcmsg" class="message">
+                            <div class="sf">
+                                Для просмотра контактной информации нужно <a href="/employer/login/">войти как работодатель</a> или <a href="/employer/register/">зарегистрироваться</a>.
+                            </div>
+                        </div></noindex>
+                    <div id="ncprint" class="nf print">Получить контакты этого резюме можно на стр. http://www.work.ua/resumes/3114792/</div><div class="clear"></div><h2><span>Опыт работы</span></h2>
+                    <h3>ИНЖЕНЕР -ЭЛЕКТРОНЩИК</h3>
+                    <p>с 03.2005 по 08.2015 <span>(10&nbsp;лет&nbsp;5&nbsp;месяцев)</span><br/>
+                        вентс (начальник лаборатории входного контроля электронных плат с датчиками влажности,движения,фото,таймеров) (БЫТОВАЯ ВЕНТИЛЯЦИЯ)</p>
+                    <p><span>Организация входного контроля электронных плат,программирование микроконтроллеров (Атмел),поиск неиправностей.,составление рекламаций поставщикам,повторная проверка после ремонта.Учет склада в 1с .Ремонт электроинструмента пуск и наладка оборудования производства.</span></p><h2><span>Образование</span></h2>
+
+                    <h3>Высшее</h3>
+                    <p>с 08.1981 по 06.1986<br/>КВЗРИУ, ИНЖЕНЕР ПО РАДИОТЕХНИКЕ, Киев.</p><p><span>Инженер по ремонту и эксплуатации ЗРК С 300 В1,станция разведки 9С15</span></p><h2><span>Дополнительная информация</span></h2>
+                    <p id="add_info">Опыт работы с удаленными командными пунктами ,передача информации,обслуживание и ремонт ,проведение технического обслуживания ,работа с заводами изготовителями.Программирование системы свой чужой,ввод кодов пво.Диагностика отказов приемопередающих устройств,определение неисправностей ячеек,блоков.миу,лбв.</p><div class="print_foot nf">
+                    <div>
+                        <img src="//st.work.ua/i/jobs/circle_black.svg" width="15" height="15" class="svg">
+                        <!--[if lte IE 8]>
+                        <img src="//st.work.ua/i/jobs/circle_black.png" width="15" height="15" class="png">
+                        <![endif]-->
+                        Резюме доступно по адресу: www.work.ua/resumes/3114792</div>
+                </div>
+                </div>
+                <!-- whiteBlock -->
+
+                <div class="bottomLinks sf no-print">
+                    <div class="up">&uarr; <a href="#">Наверх</a></div>
+                </div>
+                <div><br /></div>
+
+                <div class="no-print">
+                    <div class="sf" style="color:#7f7f7f;padding-top:12px">Похожие резюме</div>
+                    <ul style="font-size:75% !important; margin-bottom:5px"><li><span style="color:#000"><a href="/resumes/988741/">Инженер-электронщик, радиомонтажник, радиотехник 9000&nbsp;грн (Киев, Сумы, Харьков)</a></span></li><li><span style="color:#000"><a href="/resumes/944709/">Инженер-радиотехник, консультант-менеджер 4500&nbsp;грн (Киев)</a></span></li><li><span style="color:#000"><a href="/resumes/3028213/">Инженер-радиотехник, электронщик (Киев)</a></span></li><li><span style="color:#000"><a href="/resumes/2570643/">Инженер, радиотехник, электронщик, конструктор 15000&nbsp;грн (Киев)</a></span></li><li><span style="color:#000"><a href="/resumes/2582088/">Інженер-радіотехнік 4000&nbsp;грн (Киев)</a></span></li></ul>
+                    <div style="font-size:75% !important; padding-left:25px"><a rel="nofollow" href="/wizard/resumes.php?resumes=1&id=3114792" >Все похожие резюме &rarr;</a></div>
+                    <div style="width:1px; height:5px; font-size:1px; margin-top:-1px"></div>
+                    <div class="sf" style="color:#7f7f7f; margin-top:12px">
+                        Резюме в категории: <a href="/resumes-it/" title="Специалисты в сфере IT, компьютеры, интернет">IT, компьютеры, интернет</a>.
+                    </div>
+                    <div class="sf" style="color:#7f7f7f; padding-top:12px">
+                        Резюме по городам: <a href="/resumes/kyiv/" title="Подбор персонала в Киеве">резюме в Киеве</a>.
+                    </div>
+                    <div class="sf" style="color:#7f7f7f; padding-top:12px">
+                        Сравните свои требования и зарплату с вакансиями других компаний: <a href="/jobs-kyiv-%D1%80%D0%B0%D0%B4%D0%B8%D0%BE%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA/" title="Работа радиотехник в Киеве">вакансии «Радиотехник в Киеве»</a>, <a href="/jobs-kyiv/" title="Работа в Киеве">вакансии в Киеве</a>.
+                    </div><div class="breadcrumbS" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/resumes/" itemprop="url" title="Резюме"><span itemprop="title">Резюме</span></a>&nbsp;›&nbsp;</div><div class="breadcrumbS" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/resumes-kyiv/" itemprop="url" title="Резюме в Киеве"><span itemprop="title">в Киеве</span></a>&nbsp;›&nbsp;</div><div class="breadcrumbS" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/resumes-kyiv-%D1%80%D0%B0%D0%B4%D0%B8%D0%BE%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA/" itemprop="url" title="Резюме радиотехник в Киеве"><span itemprop="title">Радиотехник</span></a>&nbsp;›&nbsp;</div><div class="clear"></div>
+                    <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border:1px solid #5f8ec7; margin-top:20px">
+                        <tr valign="middle">
+                            <td width="1%" style="padding:9px 12px 9px 12px; background-color: #fff">
+                                <a href="http://101.com.ua/" target="_blank" class="no-hover"><img src="//i.work.ua/i/partners/logo_101.gif" width="122"
+                                                                                                   height="21" alt="101.com.ua" title="101.com.ua"></a>
+                            </td>
+                            <td width="99%" style="background:#eff3f9 url(//i.work.ua/i/partners/sh.gif) no-repeat left center; padding:12px" class="nf">
+                                Резюме &laquo;<noindex><a
+                                    href="http://101.com.ua/cgi-bin/srch.cgi?photo=0&vac=0&skill=0&condi=0&search_flag=1&q=%C8%ED%E6%E5%ED%E5%F0+%EF%EE+%F0%E0%E4%E8%EE%F2%E5%F5%ED%E8%EA%E5&razd=0&city=7&salary=&currency=0" rel="nofollow"
+                                    target="_blank">Инженер по радиотехнике</a></noindex>&raquo;
+                                на&nbsp;101.com.ua&nbsp;&#8594;</td>
+                        </tr>
+                    </table>
+                    <script type="text/javascript">
+                        var rnd = Math.floor(Math.random() * 1000000);
+                        document.write(
+                                '<scri'+'pt language=JavaScript src="http://www.work.ua/_data/counter.php?'+
+                                'banner=177&nc=1&rnd='+rnd+'"></sc'+'ript>'
+                        );
+                    </script>
+
+                </div>
+            </div>
+        </div>
+        <!-- #leftSide -->
+
+        <div id="rightSide">
+            <noindex>
+                <ul id="menu-3" class="icnResume">
+                    <li><a href="/employer/my/jobs/send/?id=3114792" id="offer-job"
+                           onclick="return check_access()">Предложить вакансию</a></li>
+                    <li><a href="javascript:void(0)" id="s-to-author"
+                           onclick="if(check_access())showWin2Author();return false;"
+                    >Отправить сообщение автору</a></li>
+                    <li class="tripleLine">
+
+                        <a href="javascript:void(0)" id="add-archive"
+                           onclick="return check_access()" style="display:none">Добавить в&nbsp;отклики</a></li><li><script type="text/javascript">
+                    if($('add-archive'))$('add-archive').style.display='block';
+                </script>
+                    <a href="/employer/register/" id="download" onclick="return check_access()">Скачать в формате Word</a></li>
+                    <li><a href="/resumes/3114792/print/" target="_blank"
+                           onclick="window.open(
+'/resumes/3114792/print/',
+'_blank',
+'resizable=yes,left=50,top=50,height=550,width=715,location=yes,scrollbars=yes,status=yes,toolbar=yes,menubar=yes');return false;"
+                           id="printout">Распечатать</a></li>
+                    <li class="tripleLine"><a rel="nofollow" href="/wizard/resumes.php?resumes=1&id=3114792" id="find"
+                    >Найти похожие резюме</a></li>
+                    <li><a href="/complain/?id=3114792&type=r" target="_blank"
+                           id="complain">Пожаловаться на&nbsp;это резюме</a></li>
+                </ul>
+            </noindex>
+            <iframe src="http://www.work.ua/b.php?bid=1444" width="240" height="400" marginwidth=0 marginheight=0 scrolling=no frameborder=0></iframe>
+
+
+
+
+            <script>
+                /*функция для открытия окна (Vip услуга)*/
+                function openVipPage()
+                {
+                    widthW = 720;
+                    heightW = 685;
+                    xW = (screen.width/2)-(widthW/2);
+                    yW = (screen.height/2)-(heightW/2);
+                    window.open(
+                            "/jobseeker/vip-resume/",
+                            "_blank",
+                            "width="+widthW+",height="+heightW+",menubar=no,scrollbars=yes,status=yes,toolbar=no,resizable=yes,top="+yW+",left="+xW
+                    );
+                }
+            </script>
+            <div class="clear" style="height:10px"></div>
+            <div class="frmTop tlcOrangeOnGrey">
+                <div class="frmTopInside trcOrangeOnGrey"></div>
+            </div>
+            <div class="frmBody bgYellow">
+                <div class="frmTitle bgOrange">
+                    <h3>VIP-резюме</h3>
+                </div><div style="padding:5px 15px 8px 15px; border-top:1px solid #FFCF67">
+                <a href="/resumes/870047/" class="nf">Web-дизайнер</a><span class="sf grey">, 15000&nbsp;грн</span>
+            </div><div style="padding:5px 15px 8px 15px; border-top:1px solid #FFCF67">
+                <a href="/resumes/1257285/" class="nf">Специалист по SEO, администратор сайта</a><span class="sf grey">, 4000&nbsp;грн</span>
+            </div><div style="padding:5px 15px 8px 15px; border-top:1px solid #FFCF67">
+                <a href="/resumes/3171222/" class="nf">Системный администратор HP-UX</a><span class="sf grey">, 25000&nbsp;грн</span>
+            </div><div style="padding:5px 15px 8px 15px; border-top:1px solid #FFCF67">
+                <a href="/resumes/2577298/" class="nf">Контент-менеджер, администратор сайта (SEO)</a>
+            </div><div style="padding:5px 15px 8px 15px; border-top:1px solid #FFCF67">
+                <a href="/resumes/3426601/" class="nf">UX/UI Designer</a><span class="sf grey">, 10000&nbsp;грн</span>
+            </div><div style="padding:5px 15px 8px 15px; border-top:1px solid #FFCF67">
+                <a href="/resumes/1342237/" class="nf">Project manager</a>
+            </div><div style="padding:5px 15px 8px 15px; border-top:1px solid #FFCF67">
+                <a href="/resumes/1298198/" class="nf">Веб-дизайнер</a>
+            </div><div style="padding:5px 15px 8px 15px; border-top:1px solid #FFCF67">
+                <a href="/resumes/1940030/" class="nf">Специалист по контекстной рекламе Google Adwords, Yandex Direct</a><span class="sf grey">, 3000&nbsp;грн</span>
+            </div><div style="padding:5px 15px 8px 15px; border-top:1px solid #FFCF67">
+                <a href="/resumes/3308183/" class="nf">Системный администратор</a><span class="sf grey">, 6000&nbsp;грн</span>
+            </div><div style="padding:5px 15px 8px 15px; border-top:1px solid #FFCF67">
+                <a href="/resumes/511635/" class="nf">UI/UX-Дизайнер, Design Team Lead</a><span class="sf grey">, 80000&nbsp;грн</span>
+            </div><div style="padding:5px 15px 8px 15px; border-top:1px solid #FFCF67">
+                <a href="/resumes/1510095/" class="nf">Web-дизайнер</a><span class="sf grey">, 2000&nbsp;грн</span>
+            </div><div style="padding:5px 15px 8px 15px; border-top:1px solid #FFCF67">
+                <a href="/resumes/3321666/" class="nf">Project manager</a>
+            </div><div style="padding:5px 15px 8px 15px; border-top:1px solid #FFCF67">
+                <a href="/resumes/2138175/" class="nf">Руководитель интернет-магазина, проекта</a><span class="sf grey">, 75000&nbsp;грн</span>
+            </div><div style="padding:5px 15px 8px 15px; border-top:1px solid #FFCF67">
+                <a href="/resumes/2821486/" class="nf">Интернет-маркетолог</a><span class="sf grey">, 7000&nbsp;грн</span>
+            </div><div style="padding:5px 15px 8px 15px; border-top:1px solid #FFCF67">
+                <a href="/resumes/3312877/" class="nf">Интернет-маркетолог, менеджер по продажам</a>
+            </div>
+                <div style="padding:5px 15px 0 15px; border-top:1px solid #FFCF67">
+                    <a href="/help/?id=136" target="_blank" class="sf orange">Как сделать резюме VIP?</a>
+                </div>
+            </div>
+            <div class="frmBottom blcYellowOnGrey">
+                <div class="frmBottomInside brcYellowOnGrey"></div>
+            </div>
+            <div class="frmShadowOnGrey300"></div>
+            <div class="clear"></div></div>
+        <!-- #rightSide -->
+
+    </div>
+    <!-- #container -->
+
+    <script type="text/javascript">
+        (function() {
+            var co = document.createElement("script"); co.type = "text/javascript"; co.async = true;
+            cntrs = window.cntrs || [];
+            var params = "";
+            for (var i = 0, l = cntrs.length; i < l; i++) {
+                params = params + "&b["+(100+i)+"]="+cntrs[i][0];
+                if (cntrs[i][1] != undefined) params = params + "&nc["+(100+i)+"]=1";
+                if (cntrs[i][2] != undefined) params = params + "&uc["+(100+i)+"]=1";
+            }
+            co.src = "/_data/counter.php?b[0]=56&nc[0]=1&b[1]=731&nc[1]=1&b[2]=1444"+params+"&rnd=574b055a00d4c";
+            var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(co, s);
+        })();
+    </script>
+    <script>
+        function showFeedback( from )
+        {
+            widthW = 720;
+            heightW = 700;
+
+            var tmp = '';
+            if(from != undefined && trim(from)!= "")
+            {
+                tmp = '?from=' + from;
+            }
+            xW = (screen.width/2)-(widthW/2);
+            yW = (screen.height/2)-(heightW/2);
+
+            var param = "width="+widthW+",height="+heightW+",menubar=no,scrollbars=yes,status=yes,toolbar=no,resizable=yes,top="+yW+",left="+xW;
+            window.open("/about-us/feedback/"+tmp, "_blank", param);
+        }
+    </script>
+
+</div>
+<!-- #center -->
+<style>
+    .black {color:#000 !important; text-decoration:none; background:none !important}
+</style>
+<!-- footer -->
+<div id="footer">
+    <div id="footContent">
+
+        <div class="clear" style="height:35px"></div>
+        <div class="footLinks">
+            <ul style="width:218px; padding-top:0">
+                <li><p class="logoFoot"><noindex><a href="/" class="no-hover"><img src="//i.work.ua/i/work.ua-footer.gif" alt="Work.ua" title="Work.ua" width="84" height="20" /></a></noindex></p>
+                <li><noindex><a href="/">Главная страница</a></noindex>
+                <li><noindex><a href="/help/" target="_blank">
+                    Помощь</a></noindex>
+                <li><noindex><a href="/about-us/">О нас</a></noindex>
+                <li><noindex><a href="/employer/news/site/">Новости сайта</a></noindex>
+                <li><noindex><a href="/about-us/stat/">Статистика сайта</a></noindex>
+                <li><noindex><a href="/about-us/conditions/">Условия использования</a></noindex>
+                <li><noindex><a href="/about-us/contact/">Контакты</a></noindex>
+                <li><noindex><a href="/about-us/feedback/" target="_blank" onclick="showFeedback();return false;">
+                    Обратная связь</a></noindex>
+                <li><noindex><a href="/sitemap/">Карта сайта</a></noindex>
+            </ul>
+
+            <ul style="width:216px">
+                <li><b>Работодателям</b>
+                <li><a href="/resumes/">Поиск резюме</a>
+                <li><noindex><a href="/employer/my/jobs/">Опубликовать вакансию</a></noindex>
+                <li><noindex><a href="/employer/resources/">Ресурсы</a></noindex>
+                <li><noindex><a href="/services/">Услуги для работодателей</a></noindex><br/><br/>
+
+                <li><b>Ищете работу?</b>
+                <li><a href="/jobs/">Найти вакансии</a>
+                <li><a href="/jobseeker/my/resumes/">Опубликовать резюме</a>
+                <li><noindex><a href="/jobseeker/resources/">Ресурсы</a></noindex>
+            </ul>
+
+            <ul style="width:216px">
+                <li><b>Доп. сервисы</b>
+                <li><a href="/stat/">Статистика зарплат</a>
+                <li><a href="/articles/">Статьи о работе</a>
+                <li><a href="/news/ukraine/">Новости <nobr>HR-рынка</nobr></a>
+                <li><a href="/agencies/">Каталог агентств</a>
+                <li><a href="/documents/" title="Кадровые документы">Кадровые документы</a></li>
+                <li><a href="/kzot/">КЗоТ</a>
+                <li class="footSocialLinks">
+                    <a href="http://vk.com/workuamedia" target="_blank" class="vk"></a>
+                    <a href="http://www.facebook.com/workuamedia" target="_blank" class="fb"></a>
+                    <a href="http://twitter.com/workuamedia" target="_blank" class="twitter"></a>
+            </ul>
+            <ul style="width:290px;margin-top:3px" class="projects">
+                <li><a href="/" target="_blank" id="work"><span class="project_name">Work.ua</span><br>
+                    <span class="project_descr">Работа в&nbsp;Украине</span></a>
+                <li><a href="http://www.education.ua" id="osvita" target="_blank"><span class="project_name">Education.ua</span><br>
+                    <span class="project_descr">Образование</span></a>
+                <li><a href="http://www.trn.ua" id="trn" target="_blank"><span class="project_name">TRN.ua</span><br>
+                    <span class="project_descr">Тренинги</span></a>
+                <li><a href="http://vse10.ru" id="vse10" target="_blank"><span class="project_name">Vse10.ru</span><br>
+                    <span class="project_descr">Клавиатурный тренажёр</span></a>
+                <li><a href="http://www.ratatype.com/" id="ratatype" target="_blank"><span class="project_name">Ratatype.com</span><br>
+                    <span class="project_descr">Typing tutor</span></a>
+            </ul>
+        </div>
+        <div class="clear" style="padding-top:15px"></div>
+        <div class="sf left">&copy;&nbsp;2006 &ndash; 2016&nbsp;Work.ua. Сайт поиска работы №1 в Украине.<br>Сделано в компании &laquo;<noindex><a href="http://www.reactor.com.ua/" class="red" target="_blank">Реактор</a></noindex>&raquo;.</div>
+        <div class="right" style="overflow:hidden">
+            <noindex>
+                <noscript><div><img src="//mc.yandex.ru/watch/2581306" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                <div style="float:left" id="bigmirCounter">
+                    <noscript><a href="//www.bigmir.net/" target="_blank" style="padding-right:4px"><img src="//c.bigmir.net/?v132195&s132195&t2"
+                                                                                                         width="88" height="31" alt="bigmir)net TOP 100" title="bigmir)net TOP 100" border="0" /></a></noscript>
+                </div>
+                <div style="float:left">
+                    <a rel="nofollow" href="//www.i.ua/" target="_blank" onclick="this.href='//i.ua/r.php?952'" title="Rated by I.UA"
+                       class="no-hover" id="iuaCounter"><noscript><img src="//r.i.ua/s?u952&p6" border="0" width="88" height="31" /></noscript></a>
+                </div>
+                <script type="text/javascript">
+
+                    function pageLoaded(b){var c=window,a=c.onload;if(c.addEventListener){c.addEventListener("load",b,!1)}else{
+                        if(c.attachEvent){c.attachEvent("onload",b)}else{c.onload=function(){if(typeof a==="function"){a()}b()}}}}
+                    function loadScript(h,j){var c,a="script",g=document,b=g.getElementsByTagName(a)[0];if(j&&g.getElementById(j))
+                    {return}c=g.createElement(a);c.id=j;c.src=h;b.parentNode.insertBefore(c,b)}
+
+                    (function (d, w, c) {
+                        (w[c] = w[c] || []).push(function() {
+                            try {
+                                w.yaCounter2581306 = new Ya.Metrika({id:2581306,
+                                    clickmap:true,
+                                    trackLinks:true});
+                            } catch(e) {}
+                        });
+
+                        var n = d.getElementsByTagName("script")[0],
+                                s = d.createElement("script"),
+                                f = function () { n.parentNode.insertBefore(s, n); };
+                        s.type = "text/javascript";
+                        s.async = true;
+                        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+                        if (w.opera == "[object Opera]") {
+                            d.addEventListener("DOMContentLoaded", f);
+                        } else { f(); }
+                    })(document, window, "yandex_metrika_callbacks");
+
+                    function BM_Draw(oBM_STAT) {
+                        document.getElementById('bigmirCounter').innerHTML=('<table cellpadding="0" cellspacing="0" border="0" '+
+                        'style="display:inline;margin-right:4px;float:left"><tr><td><div style="margin:0px;padding:0px;font-size:1px;width:88px">'+
+                        '<div style="background:url(\'//i.bigmir.net/cnt/samples/diagonal/b60_top.gif\') no-repeat bottom;height:2px"></div>'+
+                        '<div style="font:10px Tahoma;background:url(\'//i.bigmir.net/cnt/samples/diagonal/b60_center.gif\')"><div style="text-align:center">'+
+                        '<a rel="nofollow" class="no-hover" href="//www.bigmir.net/" target="_blank" style="color:#0000ab;text-decoration:none;font:10px Tahoma">'+
+                        'bigmir<span style="color:#f00">)</span>net</a></div><div style="margin-top:3px;padding: 0px 6px 0px 6px;color:#426ed2">'+
+                        '<div style="float:left;font:10px Tahoma">'+oBM_STAT.hosts+'</div><div style="float:right;font:10px Tahoma">'+oBM_STAT.hits+'</div></div>'+
+                        '<br clear="all"/></div><div style="background:url(\'//i.bigmir.net/cnt/samples/diagonal/b60_bottom.gif\') no-repeat top;height:2px">'+
+                        '</div></div></td></tr></table>')
+                    }
+                    function bigmirCounter(){
+                        var bmN=navigator,bmD=document;bmD.cookie='b=b; path=/';var i=0,bs=[],bm={o:1,v:132195,s:132195,t:0,c:bmD.cookie?1:0,
+                            n:Math.round((Math.random()* 1000000)),w:0};
+                        for(var f=self;f!=f.parent;f=f.parent)bm.w++;
+                        try{if(bmN.plugins&&bmN.mimeTypes.length&&(x=bmN.plugins['Shockwave Flash']))bm.m=parseInt(x.description.replace(/([a-zA-Z]|\s)+/,''));
+                        else for(var f=3;f<20;f++)if(eval('new ActiveXObject("ShockwaveFlash.ShockwaveFlash.'+f+'")'))bm.m=f}catch(e){;}
+                        try{bm.y=bmN.javaEnabled()?1:0}catch(e){;}
+                        try{bmS=screen;bm.v^=bm.d=bmS.colorDepth||bmS.pixelDepth;bm.v^=bm.r=bmS.width}catch(e){;}
+                        r=bmD.referrer.slice(7);if(r&&r.split('/')[0]!=window.location.host){bm.f=escape(r).slice(0,400);bm.v^=r.length}
+                        bm.v^=window.location.href.length;for(var x in bm) if(/^[ovstcnwmydrf]$/.test(x)) bs[i++]=x+bm[x];
+                        loadScript('//c.bigmir.net/?'+bs.join('&'),'bigmir-counter')}
+                    pageLoaded(function(){setTimeout(bigmirCounter,50)});
+
+                    function iuaCounter(){
+                        iS='<img src="'+(window.location.protocol=='https:'?'https':'http')+
+                                '://r.i.ua/s?u952&p6&n'+Math.random();
+                        iD=document;if(!iD.cookie)iD.cookie="b=b; path=/";if(iD.cookie)iS+='&c1';
+                        iS+='&d'+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)
+                                +"&w"+screen.width+'&h'+screen.height;
+                        iT=iR=iD.referrer.replace(iP=/^[a-z]*:\/\//,'');iH=window.location.href.replace(iP,'');
+                        ((iI=iT.indexOf('/'))!=-1)?(iT=iT.substring(0,iI)):(iI=iT.length);
+                        if(iT!=iH.substring(0,iI))iS+='&f'+escape(iR);
+                        iS+='&r'+escape(iH);
+                        iD.getElementById('iuaCounter').innerHTML=(iS+'" border="0" width="88" height="31" />')}
+                    pageLoaded(function(){setTimeout(iuaCounter,50)});
+                </script>
+                <div style="clear:both"></div>
+            </noindex>
+            <script>var
+                    google_tag_params = { membertype: 'visitor' },
+                    google_conversion_id = 1027383095,
+                    google_custom_params = window.google_tag_params,
+                    google_remarketing_only = true;
+            </script>
+            <script src="//www.googleadservices.com/pagead/conversion.js">
+            </script>
+            <noscript>
+                <div style="display:inline;">
+                    <img height="1" width="1" style="border-style:none;" alt=""
+                         src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1027383095/?value=0&amp;guid=ON&amp;script=0"/>
+                </div>
+            </noscript><script>(function() {
+            var _fbq = window._fbq || (window._fbq = []);
+            if (!_fbq.loaded) {
+                var fbds = document.createElement('script');
+                fbds.async = true;
+                fbds.src = '//connect.facebook.net/en_US/fbds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(fbds, s);
+                _fbq.loaded = true;
+            }
+            _fbq.push(['addPixelId', '712180692188430']);
+        })();
+        window._fbq = window._fbq || [];
+        window._fbq.push(['track', 'PixelInitialized', {}]);
+        </script>
+            <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=712180692188430&amp;ev=PixelInitialized" /></noscript><!-- (C)2000-2010 Gemius SA - gemiusAudience / work.ua -->
+            <script>
+                <!--//--><![CDATA[//><!--
+                var pp_gemius_identifier = new String('.AGbG7v17J3oLQW7dJo1gcdRXfX8EK_lw4AocKOtBzv.V7');
+                pageLoaded(function(){setTimeout(function(){loadScript('/js/xgemius_1380634946.js','xgemius')},200)});
+                //--><!]]>
+            </script>
+            <div class="spacer"></div>
+        </div>
+        <div class="clear" style="padding-top:15px"></div>
+
+    </div>
+</div>
+<!-- #footer -->
+</body>
+</html>
